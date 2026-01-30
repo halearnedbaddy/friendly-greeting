@@ -9,7 +9,6 @@ interface BuyerWalletProps {
   loading: boolean;
   error: string | null;
   onRefresh?: () => void;
-  userEmail?: string;
 }
 
 interface WalletTransaction {
@@ -25,7 +24,7 @@ interface WalletTransaction {
   };
 }
 
-export function BuyerWallet({ wallet, loading, error, onRefresh, userEmail }: BuyerWalletProps) {
+export function BuyerWallet({ wallet, loading, error, onRefresh }: BuyerWalletProps) {
   const [transactions, setTransactions] = useState<WalletTransaction[]>([]);
   const [transactionsLoading, setTransactionsLoading] = useState(false);
   const [showTopUpModal, setShowTopUpModal] = useState(false);
@@ -352,7 +351,10 @@ export function BuyerWallet({ wallet, loading, error, onRefresh, userEmail }: Bu
       <TopUpModal 
         isOpen={showTopUpModal} 
         onClose={() => setShowTopUpModal(false)}
-        userEmail={userEmail}
+        onSuccess={() => {
+          // Refresh wallet data after successful top-up
+          window.location.reload();
+        }}
       />
     </div>
   );
