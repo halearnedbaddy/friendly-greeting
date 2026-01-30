@@ -135,7 +135,7 @@ export function BuyerDashboard() {
         <main className="p-6">
           <div className="max-w-7xl mx-auto">
             {activeTab === 'purchases' && <BuyerOrders orders={orders} loading={loading} error={error} isConnected={isConnected} onRefresh={refetch} />}
-            {activeTab === 'wallet' && <BuyerWallet wallet={wallet} loading={loading} error={error} onRefresh={refetch} userEmail={user?.email} />}
+            {activeTab === 'wallet' && <BuyerWallet wallet={wallet} loading={loading} error={error} onRefresh={refetch} />}
             {activeTab === 'disputes' && <BuyerDisputes disputes={disputes} loading={loading} error={error} onRefresh={refetch} />}
             {activeTab === 'activity' && <BuyerActivity />}
           </div>
