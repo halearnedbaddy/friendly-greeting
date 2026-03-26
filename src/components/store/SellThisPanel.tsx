@@ -128,7 +128,7 @@ export function SellThisPanel({ product, storeSlug, storeName, onClose }: SellTh
           <div className="grid grid-cols-3 gap-3">
             <button
               onClick={shareToWhatsApp}
-              className="flex flex-col items-center gap-1.5 p-3 bg-green-600 text-white rounded-xl hover:bg-green-700 transition"
+              className="flex flex-col items-center gap-1.5 p-3 bg-green-600 hover:bg-green-700 text-white rounded-xl transition"
             >
               <MessageCircle size={22} />
               <span className="text-xs font-medium">WhatsApp</span>

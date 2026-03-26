@@ -172,7 +172,7 @@ export function SalesPackTab({ storeSlug, storeName }: SalesPackTabProps) {
       </button>
       <button
         onClick={() => shareToWhatsApp(text)}
-        className="p-2 text-green-600 hover:bg-green-50 rounded-lg transition"
+        className="p-2 text-green-600 hover:bg-green-50 dark:hover:bg-green-950/30 rounded-lg transition"
         title="Share to WhatsApp"
       >
         <MessageCircle size={16} />
