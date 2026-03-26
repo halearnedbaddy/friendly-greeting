@@ -1,8 +1,8 @@
 import { 
-  HomeIcon, BarChartIcon, PackageIcon, ShoppingCartIcon, GlobeIcon, SettingsIcon 
+  HomeIcon, BarChartIcon, PackageIcon, ShoppingCartIcon, GlobeIcon, SettingsIcon, ShareIcon 
 } from '@/components/icons';
 
-export type StoreTab = 'overview' | 'analytics' | 'products' | 'orders' | 'my-store' | 'settings';
+export type StoreTab = 'overview' | 'analytics' | 'products' | 'orders' | 'sales-packs' | 'my-store' | 'settings';
 
 interface StoreSidebarProps {
   activeTab: StoreTab;
