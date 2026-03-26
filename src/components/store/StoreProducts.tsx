@@ -34,6 +34,7 @@ export function StoreProducts({ storeSlug }: StoreProductsProps) {
   const [syncing, setSyncing] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [sellThisProduct, setSellThisProduct] = useState<Product | null>(null);
   
   // Add Product Modal State
   const [showAddModal, setShowAddModal] = useState(false);
