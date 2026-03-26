@@ -504,6 +504,17 @@ export function StoreProducts({ storeSlug }: StoreProductsProps) {
                       Publish to Get Link
                     </button>
                   ) : null}
+
+                  {/* Sell This Button */}
+                  {product.status === 'PUBLISHED' && (
+                    <button
+                      onClick={() => setSellThisProduct(product)}
+                      className="w-full mt-2 text-sm px-3 py-2 bg-primary text-primary-foreground rounded-null-lg hover:bg-primary/90 transition font-medium flex items-center justify-center gap-2"
+                    >
+                      <ShareIcon size={14} />
+                      🚀 Sell This
+                    </button>
+                  )}
                 </div>
               </div>
             );
