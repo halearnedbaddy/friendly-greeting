@@ -6,6 +6,7 @@ import { StoreProducts } from './StoreProducts';
 import { StoreOrders } from './StoreOrders';
 import { MyStorefront } from './MyStorefront';
 import { StoreSettings } from './StoreSettings';
+import { SalesPackTab } from './SalesPackTab';
 import { Menu, X, Bell, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
