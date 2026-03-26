@@ -41,6 +41,8 @@ export function StoreDashboard({ store, onStoreUpdate, onBack }: StoreDashboardP
         return <StoreProducts storeSlug={store.slug} />;
       case 'orders':
         return <StoreOrders />;
+      case 'sales-packs':
+        return <SalesPackTab storeSlug={store.slug} storeName={store.name} />;
       case 'my-store':
         return <MyStorefront storeSlug={store.slug} storeName={store.name} />;
       case 'settings':
