@@ -522,6 +522,16 @@ export function StoreProducts({ storeSlug }: StoreProductsProps) {
         </div>
       )}
 
+      {/* Sell This Panel */}
+      {sellThisProduct && storeSlug && (
+        <SellThisPanel
+          product={sellThisProduct}
+          storeSlug={storeSlug}
+          storeName="My Store"
+          onClose={() => setSellThisProduct(null)}
+        />
+      )}
+
       {/* Add Product Modal */}
       {showAddModal && (
         <div className="fixed inset-0 bg-black/50 z-50 flex items-center justify-center p-4">
