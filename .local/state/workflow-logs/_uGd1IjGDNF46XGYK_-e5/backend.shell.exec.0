@@ -1,0 +1,38 @@
+
+> swiftline-backend@1.0.0 dev
+> tsx src/index.ts --port 8000
+
+[1G[0K⚠️ IntaSend Secret Key not configured
+⚠️ IntaSend Publishable Key not configured
+🔌 SocketService initialized
+✅ Database connected successfully
+🕒 Social sync scheduler started (interval: 300000ms)
+🕒 Escrow auto-release scheduler started (interval: 24h)
+⚠️ EXCHANGE_RATE_API_KEY not configured. Skipping rate update.
+✅ Server running on http://0.0.0.0:8000
+📝 Environment: development
+[34mprisma:query[39m SELECT "public"."Transaction"."id", "public"."Transaction"."sellerId", "public"."Transaction"."buyerId", "public"."Transaction"."itemName", "public"."Transaction"."itemDescription", "public"."Transaction"."itemImages", "public"."Transaction"."amount", "public"."Transaction"."quantity", "public"."Transaction"."currency", "public"."Transaction"."buyerCurrency", "public"."Transaction"."buyerAmount", "public"."Transaction"."baseAmountUSD", "public"."Transaction"."sellerCurrency", "public"."Transaction"."sellerAmount", "public"."Transaction"."exchangeRate", "public"."Transaction"."exchangeRateTimestamp", "public"."Transaction"."buyerPhone", "public"."Transaction"."buyerName", "public"."Transaction"."buyerEmail", "public"."Transaction"."buyerAddress", "public"."Transaction"."paymentMethod", "public"."Transaction"."paymentReference", "public"."Transaction"."platformFee", "public"."Transaction"."sellerPayout", "public"."Transaction"."status"::text, "public"."Transaction"."expiresAt", "public"."Transaction"."paidAt", "public"."Transaction"."acceptedAt", "public"."Transaction"."shippedAt", "public"."Transaction"."deliveredAt", "public"."Transaction"."completedAt", "public"."Transaction"."cancelledAt", "public"."Transaction"."refundedAt", "public"."Transaction"."courierName", "public"."Transaction"."trackingNumber", "public"."Transaction"."estimatedDeliveryDate", "public"."Transaction"."shippingNotes", "public"."Transaction"."deliveryProofUrls", "public"."Transaction"."rejectedAt", "public"."Transaction"."rejectionReason", "public"."Transaction"."cancellationReason", "public"."Transaction"."createdAt", "public"."Transaction"."updatedAt", "public"."Transaction"."productId", "public"."Transaction"."paymentLinkId" FROM "public"."Transaction" WHERE ("public"."Transaction"."status" = CAST($1::text AS "public"."TransactionStatus") AND "public"."Transaction"."shippedAt" <= $2) OFFSET $3
+[34mprisma:query[39m SELECT "public"."Transaction"."id", "public"."Transaction"."sellerId", "public"."Transaction"."buyerId", "public"."Transaction"."itemName", "public"."Transaction"."itemDescription", "public"."Transaction"."itemImages", "public"."Transaction"."amount", "public"."Transaction"."quantity", "public"."Transaction"."currency", "public"."Transaction"."buyerCurrency", "public"."Transaction"."buyerAmount", "public"."Transaction"."baseAmountUSD", "public"."Transaction"."sellerCurrency", "public"."Transaction"."sellerAmount", "public"."Transaction"."exchangeRate", "public"."Transaction"."exchangeRateTimestamp", "public"."Transaction"."buyerPhone", "public"."Transaction"."buyerName", "public"."Transaction"."buyerEmail", "public"."Transaction"."buyerAddress", "public"."Transaction"."paymentMethod", "public"."Transaction"."paymentReference", "public"."Transaction"."platformFee", "public"."Transaction"."sellerPayout", "public"."Transaction"."status"::text, "public"."Transaction"."expiresAt", "public"."Transaction"."paidAt", "public"."Transaction"."acceptedAt", "public"."Transaction"."shippedAt", "public"."Transaction"."deliveredAt", "public"."Transaction"."completedAt", "public"."Transaction"."cancelledAt", "public"."Transaction"."refundedAt", "public"."Transaction"."courierName", "public"."Transaction"."trackingNumber", "public"."Transaction"."estimatedDeliveryDate", "public"."Transaction"."shippingNotes", "public"."Transaction"."deliveryProofUrls", "public"."Transaction"."rejectedAt", "public"."Transaction"."rejectionReason", "public"."Transaction"."cancellationReason", "public"."Transaction"."createdAt", "public"."Transaction"."updatedAt", "public"."Transaction"."productId", "public"."Transaction"."paymentLinkId" FROM "public"."Transaction" WHERE ("public"."Transaction"."status" = CAST($1::text AS "public"."TransactionStatus") AND "public"."Transaction"."shippedAt" <= $2 AND "public"."Transaction"."shippedAt" > $3 AND "public"."Transaction"."buyerId" IS NOT NULL) OFFSET $4
+[Escrow] Found 0 orders eligible for auto-release
+[34mprisma:query[39m SELECT 1
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+[34mprisma:query[39m SELECT 1
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+[34mprisma:query[39m SELECT 1
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+[34mprisma:query[39m SELECT 1
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+[34mprisma:query[39m SELECT 1
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+⚠️ EXCHANGE_RATE_API_KEY not configured. Skipping rate update.
+[34mprisma:query[39m SELECT 1
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+[34mprisma:query[39m SELECT 1
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2
+[34mprisma:query[39m SELECT "public"."Store"."id" FROM "public"."Store" WHERE "public"."Store"."status" = CAST($1::text AS "public"."StoreStatus") OFFSET $2

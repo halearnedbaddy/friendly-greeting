@@ -1,0 +1,1 @@
+UPDATE profiles SET full_name = 'PayingZee Admin' WHERE user_id = '9bb32745-6f42-430f-9a4e-b05d6e0633ac';
