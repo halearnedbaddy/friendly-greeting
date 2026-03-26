@@ -16,6 +16,7 @@ export function StoreSidebar({ activeTab, onTabChange, storeName }: StoreSidebar
     { id: 'analytics' as StoreTab, label: 'Analytics', icon: BarChartIcon },
     { id: 'products' as StoreTab, label: 'Products', icon: PackageIcon },
     { id: 'orders' as StoreTab, label: 'Orders', icon: ShoppingCartIcon },
+    { id: 'sales-packs' as StoreTab, label: 'Sales Packs', icon: ShareIcon },
   ];
 
   const storefrontItems = [
