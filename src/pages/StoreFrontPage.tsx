@@ -110,45 +110,57 @@ export function StoreFrontPage() {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {store.products.map((p: any) => (
-              <Link
-                key={p.id}
-                to={`/store/${store.slug}/product/${p.id}`}
-                className="bg-white border border-gray-200 rounded-null overflow-hidden hover:shadow-md transition relative"
-              >
-                {p.isAvailable === false && (
-                  <div className="absolute top-2 right-2 bg-[#4F4A41] text-white px-2 py-1 rounded-null-full text-xs font-semibold z-10">
-                    Unavailable
-                  </div>
-                )}
-                <div className="aspect-video bg-gray-100 relative">
-                  {p.images && p.images.length > 0 ? (
-                    <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">No image</div>
-                  )}
-                  {p.isAvailable === false && (
-                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
-                      <span className="bg-[#4F4A41] text-white px-4 py-2 rounded-null font-semibold">Out of Stock</span>
+            {store.products.map((p: any) => {
+              const isOutOfStock = p.stock_quantity !== null && p.stock_quantity !== undefined && p.stock_quantity <= 0;
+              const isLowStock = p.stock_quantity !== null && p.stock_quantity !== undefined && p.stock_quantity > 0 && p.stock_quantity <= (p.low_stock_threshold || 3);
+              
+              return (
+                <Link
+                  key={p.id}
+                  to={`/store/${store.slug}/product/${p.id}`}
+                  className={`bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-md transition relative ${isOutOfStock ? 'opacity-75' : ''}`}
+                >
+                  {/* Stock Badges */}
+                  {isOutOfStock && (
+                    <div className="absolute top-2 right-2 bg-red-600 text-white px-2 py-1 rounded-full text-xs font-bold z-10">
+                      🔴 SOLD OUT
                     </div>
                   )}
-                </div>
-                <div className="p-4">
-                  <p className="font-bold text-[#3d1a7a]">{p.name}</p>
-                  {typeof p.price === 'number' && (
-                    <p className="text-[#5d2ba3] font-semibold mt-1">
-                      {p.currency || 'KES'} {p.price.toLocaleString()}
-                    </p>
+                  {isLowStock && (
+                    <div className="absolute top-2 right-2 bg-orange-500 text-white px-2 py-1 rounded-full text-xs font-bold z-10 animate-pulse">
+                      🔥 Only {p.stock_quantity} left!
+                    </div>
                   )}
-                  {p.isAvailable === false && p.availabilityNote && (
-                    <p className="text-sm text-[#4F4A41] mt-1 italic">{p.availabilityNote}</p>
-                  )}
-                  {p.description && (
-                    <p className="text-sm text-gray-600 mt-2 line-clamp-2">{p.description}</p>
-                  )}
-                </div>
-              </Link>
-            ))}
+
+                  <div className="aspect-video bg-gray-100 relative">
+                    {p.images && p.images.length > 0 ? (
+                      <img src={p.images[0]} alt={p.name} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-gray-400 text-sm">No image</div>
+                    )}
+                    {isOutOfStock && (
+                      <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
+                        <span className="bg-red-600 text-white px-4 py-2 rounded-lg font-bold text-sm">Out of Stock</span>
+                      </div>
+                    )}
+                  </div>
+                  <div className="p-4">
+                    <p className="font-bold text-[#3d1a7a]">{p.name}</p>
+                    {typeof p.price === 'number' && (
+                      <p className="text-[#5d2ba3] font-semibold mt-1">
+                        {p.currency || 'KES'} {p.price.toLocaleString()}
+                      </p>
+                    )}
+                    {isLowStock && (
+                      <p className="text-sm text-orange-600 mt-1 font-medium">⚡ Hurry, low stock!</p>
+                    )}
+                    {p.description && (
+                      <p className="text-sm text-gray-600 mt-2 line-clamp-2">{p.description}</p>
+                    )}
+                  </div>
+                </Link>
+              );
+            })}
           </div>
         )}
       </main>

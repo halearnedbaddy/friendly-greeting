@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from 'react';
-import { PackageIcon, SearchIcon, EditIcon, ArchiveIcon, ExternalLinkIcon, ImageIcon, RefreshCwIcon, LoaderIcon, CheckIcon, XIcon, InstagramIcon, FacebookIcon, LinkedInIcon, PlusIcon, LinkIcon, ImagePlusIcon, TrashIcon, CopyIcon, CheckCircleIcon, UploadIcon } from '@/components/icons';
+import { PackageIcon, SearchIcon, EditIcon, ArchiveIcon, ExternalLinkIcon, ImageIcon, RefreshCwIcon, LoaderIcon, CheckIcon, XIcon, InstagramIcon, FacebookIcon, LinkedInIcon, PlusIcon, LinkIcon, ImagePlusIcon, TrashIcon, CopyIcon, CheckCircleIcon, UploadIcon, ShareIcon } from '@/components/icons';
+import { SellThisPanel } from './SellThisPanel';
 import { api } from '@/services/api';
 import { useToast } from '@/hooks/use-toast';
 
@@ -33,6 +34,7 @@ export function StoreProducts({ storeSlug }: StoreProductsProps) {
   const [syncing, setSyncing] = useState(false);
   const [deletingId, setDeletingId] = useState<string | null>(null);
   const [copiedId, setCopiedId] = useState<string | null>(null);
+  const [sellThisProduct, setSellThisProduct] = useState<Product | null>(null);
   
   // Add Product Modal State
   const [showAddModal, setShowAddModal] = useState(false);
@@ -502,11 +504,32 @@ export function StoreProducts({ storeSlug }: StoreProductsProps) {
                       Publish to Get Link
                     </button>
                   ) : null}
+
+                  {/* Sell This Button */}
+                  {product.status === 'PUBLISHED' && (
+                    <button
+                      onClick={() => setSellThisProduct(product)}
+                      className="w-full mt-2 text-sm px-3 py-2 bg-primary text-primary-foreground rounded-null-lg hover:bg-primary/90 transition font-medium flex items-center justify-center gap-2"
+                    >
+                      <ShareIcon size={14} />
+                      🚀 Sell This
+                    </button>
+                  )}
                 </div>
               </div>
             );
           })}
         </div>
+      )}
+
+      {/* Sell This Panel */}
+      {sellThisProduct && storeSlug && (
+        <SellThisPanel
+          product={sellThisProduct}
+          storeSlug={storeSlug}
+          storeName="My Store"
+          onClose={() => setSellThisProduct(null)}
+        />
       )}
 
       {/* Add Product Modal */}
